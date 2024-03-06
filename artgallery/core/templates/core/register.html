@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .signup-form-container {
+        max-width: 400px;
+        margin: auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .signup-form h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .signup-form button {
+        padding: 10px 15px;
+        color: white;
+        background-color: #007bff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        display: block;
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    .signup-form button:hover {
+        background-color: #0056b3;
+    }
+
+    .signup-form label, .signup-form p {
+        color: black; /* Ensuring that all text is black */
+        margin-top: 10px;
+    }
+
+    .signup-form input[type='text'],
+    .signup-form input[type='email'],
+    .signup-form input[type='password'],
+    .signup-form input[type='date'],
+    .signup-form input[type='radio'],
+    .signup-form select {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+</style>
+
+<div class="signup-form-container">
+    <h2>Sign Up</h2>
+    <form method="post" action="{% url 'register' %}" class="signup-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Sign up</button>
+    </form>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src='https://www.google.com/recaptcha/api.js' async defer></script>
+<script>
+    // Custom form validation or interaction scripts
+</script>
+
+{% endblock %}

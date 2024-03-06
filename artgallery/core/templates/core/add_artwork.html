@@ -1,0 +1,49 @@
+<!-- artist/add_artwork.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="mt-5 mb-4">Add Artwork</h1>
+
+    <form method="post" enctype="multipart/form-data" class="mb-5">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="{{ form.title.id_for_label }}">Title:</label>
+        {{ form.title }}
+      </div>
+      <div class="form-group">
+        <label for="{{ form.description.id_for_label }}">Description:</label>
+        {{ form.description }}
+      </div>
+      <div class="form-group">
+        <label for="{{ form.image.id_for_label }}">Image:</label>
+        {{ form.image }}
+      </div>
+      <div class="form-check">
+        {{ form.is_for_sale }} {{ form.is_for_sale.label_tag }}
+      </div>
+      <div class="form-group">
+        <label for="{{ form.price.id_for_label }}">Price:</label>
+        {{ form.price }}
+      </div>
+      <div class="form-check">
+        {{ form.is_for_auction }} {{ form.is_for_auction.label_tag }}
+      </div>
+
+      <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    </form>
+  </div>
+
+  <style>
+    /* Add this style block to make textboxes and checkboxes transparent */
+    input[type="text"],
+    input[type="number"],
+    input[type="file"],
+    input[type="checkbox"],
+    textarea {
+      background-color: transparent;
+      border: 1px solid #ccc; /* Add a border for visibility */
+      color: white; /* Set text color to white */
+    }
+  </style>
+{% endblock %}

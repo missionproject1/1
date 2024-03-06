@@ -1,0 +1,153 @@
+/* CSS style.css */
+/* CSS style.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.login-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    perspective: 1000px; /* Adjust the perspective value to control the depth effect */
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #3498db, #2ecc71, #e74c3c); /* Gradient colors for the background */
+    transform: rotateX(30deg) rotateZ(45deg) scale(1.2); /* Adjust the rotation and scale for the 3D effect */
+    z-index: -1;
+    opacity: 0.8; /* Adjust the opacity for the background */
+}
+
+.login-box {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 300px;
+    text-align: center;
+    z-index: 1;
+}
+
+
+h2 {
+    color: #333;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+.signup-link {
+    margin-top: 20px;
+    color: #888;
+}
+
+.signup-link a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: #e74c3c; /* Red color for error messages */
+    margin-bottom: 15px;
+}
+
+/* style.css */
+.signup-form-container {
+    width: 100%;
+    max-width: 400px; /* Adjust the width as needed */
+    margin: 0 auto; /* Centers the form */
+    padding: 15px;
+    background-color: #f9f9f9; /* Example background color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* A subtle shadow */
+}
+
+.signup-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.signup-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-form p {
+    margin-bottom: 15px;
+}
+
+.signup-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.signup-form input[type='text'],
+.signup-form input[type='email'],
+.signup-form input[type='password'],
+.signup-form input[type='date'] {
+    width: calc(100% - 20px); /* Full width minus padding */
+    padding: 10px;
+    margin-bottom: 10px; /* Adds space between form fields */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.signup-form .btn-signup {
+    padding: 10px 15px;
+    color: white;
+    background-color: #5cb85c; /* Green background */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.signup-form .btn-signup:hover {
+    background-color: #4cae4c; /* Darker green */
+}

@@ -1,0 +1,87 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, post-check=0, pre-check=0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+
+        // Check for the logout flag in session
+        const logoutFlag = "{{ request.session.logout_flag }}";
+        if (logoutFlag) {
+            // Clear the logout flag
+            delete window.sessionStorage.logout_flag;
+
+            // Clear the session on the client side
+            window.sessionStorage.clear();
+
+            // Redirect to the frontpage after logout
+            window.location.replace("{% url 'frontpage' %}");
+        }
+    </script>
+    <title>{% block title %}ArtGallery{% endblock title %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    {% block extra_head %}{% endblock extra_head %}
+    {% block additional_css %}
+<!-- Placeholder for additional CSS in child templates -->
+{% endblock %}
+</head>
+<body class="bg-gray-900 text-white font-sans">
+    <script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
+<header class="border-b border-gray-800">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <a href="{% url 'frontpage' %}" class="text-3xl font-bold hover:text-gray-300">ArtGallery</a>
+        <nav class="flex items-center space-x-4">
+            <a href="{% url 'auction' %}" class="hover:text-gray-300">Auction</a>
+            {% if not user.is_authenticated %}
+                <a href="{% url 'register' %}" class="hover:text-gray-300">Register</a>
+                <a href="{% url 'login' %}" class="hover:text-gray-300">Login</a>
+            {% endif %}
+            <!-- More navigation items -->
+            <div class="relative">
+                <input type="text" placeholder="Search..." class="bg-gray-800 rounded-full px-4 py-2 focus:outline-none focus:shadow-outline text-white sm:w-48 md:w-64 lg:w-96">
+                <button type="submit" class="absolute right-0 top-0 mt-3 mr-4">
+                    <svg class="fill-current text-gray-500" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                </button>
+            </div>
+            <div class="more-options">
+                {% if user.is_authenticated %}
+                    <!-- Other options -->
+                    <form method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit">Logout</button>
+                    </form>
+                {% endif %}
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main class="container mx-auto px-4 py-6">
+    {% block content %}
+    <!-- Main content goes here -->
+    {% endblock content %}
+</main>
+
+<footer class="border-t border-gray-800">
+    <div class="container mx-auto px-4 py-4 text-center">
+        {% block footer %}
+        &copy; {{ current_year }} ArtGallery. All rights reserved.
+        {% endblock footer %}
+    </div>
+</footer>
+
+{% block extra_js %}{% endblock extra_js %}
+</body>
+</html>

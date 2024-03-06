@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white">
+    
+    <!-- Header -->
+    <header class="bg-black py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-xl font-bold">ArtGallery</a>
+            <nav>
+                <!-- Navigation links -->
+            </nav>
+        </div>
+    </header>
+    {% block content %}
+    <!-- Main content -->
+    <main class="container mx-auto py-8">
+        <!-- Hero section -->
+        <section class="text-center mb-12">
+            <h1 class="text-4xl font-bold mb-4">Meet the Art Futures</h1>
+            <p class="mb-4">Connect to the exclusive art professionals you've always right about.</p>
+            <a href="register" class="bg-purple-600 py-2 px-4 rounded">Get a free account</a>
+        </section>
+
+        <!-- Artists section -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">THE ARTISTS</h2>
+            <div class="flex justify-around">
+                <!-- Artist profiles -->
+            </div>
+        </section>
+
+        <!-- Buy and Sell Art section -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">BUY AND SELL ART</h2>
+            <div class="grid grid-cols-2 gap-4">
+                <!-- Art items -->
+            </div>
+        </section>
+
+        <!-- Live Auctions section -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">Live Auctions.</h2>
+            <div>
+                <!-- Live auctions items -->
+            </div>
+        </section>
+
+        <!-- Upcoming Auctions section -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">Upcoming Auctions..</h2>
+            <div>
+                <!-- Upcoming auctions items -->
+            </div>
+        </section>
+
+        <!-- Closed Auctions section -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">Closed Auctions.</h2>
+            <div>
+                <!-- Closed auctions items -->
+            </div>
+        </section>
+    </main>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!-- artist/edit_profile.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <style>
+    body {
+      background-color: #1a1a1a; /* Set a dark background color similar to the frontpage */
+      color: #ffffff; /* Set text color to white for better contrast */
+      font-family: 'Arial', sans-serif; /* Use a common font for consistency */
+    }
+
+    .container {
+      max-width: 800px; /* Set a maximum width for better readability */
+      margin: auto; /* Center the content */
+    }
+
+    main {
+      padding: 20px; /* Add padding for spacing */
+    }
+
+    h1, h2 {
+      color: #6b46c1; /* Set a purple color for headings */
+    }
+
+    a {
+      color: #ffffff; /* Set link color to white */
+    }
+
+    a:hover {
+      text-decoration: underline; /* Add underline on hover for better interactivity */
+    }
+
+    .bg-purple-600 {
+      background-color: #6b46c1; /* Set a purple background color */
+    }
+
+    .bg-purple-600:hover {
+      background-color: #553c9a; /* Darken the purple on hover */
+    }
+
+    /* Style for fully transparent textboxes with black text */
+    form {
+      background-color: transparent;
+    }
+
+    input, textarea {
+      background: transparent; /* Fully transparent background */
+      color: #000000; /* Set text color to black */
+      border: 1px solid #ffffff; /* Add a border for better visibility */
+      padding: 8px; /* Add padding for spacing inside textboxes */
+      margin-bottom: 10px; /* Add margin between textboxes */
+    }
+
+    input:hover, textarea:hover {
+      background: rgba(255, 255, 255, 0.2); /* Lighten the background on hover */
+    }
+
+    /* Add more styles or overrides as needed */
+  </style>
+
+  <!-- Main content -->
+  <main class="container mx-auto py-8">
+    <!-- Edit Profile section -->
+    <section>
+      <h1 class="text-4xl font-bold mb-4">Edit Profile</h1>
+
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="bg-purple-600 py-2 px-4 rounded-md hover:bg-purple-700 focus:outline-none focus:bg-purple-700">Save Changes</button>
+      </form>
+    </section>
+  </main>
+{% endblock %}

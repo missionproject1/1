@@ -1,0 +1,9 @@
+<form method="get" action="{% url 'search' %}">
+    {{ form.as_p }}
+    <input type="submit" value="Search">
+</form>
+
+{% for result in results %}
+    <h2>{{ result.title }}</h2>
+    <p>{{ result.description }}</p>
+{% endfor %}
